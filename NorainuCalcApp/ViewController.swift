@@ -35,6 +35,15 @@ class ViewController: UIViewController {
     }
   }
 
+  @IBAction func restart(_ segue:UIStoryboardSegue) {
+    priceField.text = "0"
+  }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let viewController = segue.destination as! PercentViewController
+    if let price = Int(priceField.text!) {
+      viewController.price = price
+    }
+  }
 }
 
